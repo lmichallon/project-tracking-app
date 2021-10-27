@@ -1,21 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { AppRegistry } from "react-native";
+import { Provider as PaperProvider } from "react-native-paper";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import Home from "./src/pages/Home/Home"
+import app from "./app.json";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+	return (
+		<PaperProvider>
+			<Home />
+		</PaperProvider>
+	);
+};
+
+AppRegistry.registerComponent(app.expo.name, () => App);
+export default App;
