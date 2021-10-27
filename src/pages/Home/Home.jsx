@@ -1,9 +1,8 @@
 import React from "react";
-import Navigation from "../../components/Navbar/Navigation";
 
 const Home = () => {
     return (
-        <Navigation />
+        <div>Home</div>
     );
 };
 
