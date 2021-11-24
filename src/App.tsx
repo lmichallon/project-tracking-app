@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { registerRootComponent } from "expo";
 
 import Router from "./Router";
 
-const App = () => {
+const App: FC = () => {
   return <Router />;
 };
 
