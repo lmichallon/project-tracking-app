@@ -1,7 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-const Home = ({ navigation }) => {
+import { RootStackParamList } from "../Router";
+
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
+
+const Home: FC<Props> = ({ navigation }) => {
   const navigateToProject = () =>
     navigation.navigate("Project", { id: 1, name: "Mon premier projet" });
 

@@ -1,10 +1,17 @@
 import React, { FC } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  createNativeStackNavigator,
+  NativeStackScreenProps,
+} from "@react-navigation/native-stack";
 
 import Home from "./pages/Home";
 import Project from "./pages/Project";
 import Task from "./pages/Task";
+
+type RouteWithId<T = {}> = {
+  id: number;
+} & Route<T>;
 
 type Route<T = {}> = {
   name: string;
@@ -12,9 +19,14 @@ type Route<T = {}> = {
 
 export type RootStackParamList = {
   Home: Route;
-  Project: Route;
-  Task: Route;
+  Project: RouteWithId;
+  Task: RouteWithId;
 };
+
+export type RouteStackProps = NativeStackScreenProps<
+  RootStackParamList,
+  keyof RootStackParamList
+>;
 
 const Router: FC = () => {
   const { Navigator, Screen } =
@@ -22,7 +34,7 @@ const Router: FC = () => {
 
   const createRoute =
     (extra = {}) =>
-    ({ route }) => ({ title: route.params.name, ...extra });
+    ({ route }: RouteStackProps) => ({ title: route.params.name, ...extra });
 
   return (
     <NavigationContainer>

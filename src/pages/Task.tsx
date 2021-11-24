@@ -1,7 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-const Task = ({ route }) => {
+import { RootStackParamList } from "../Router";
+
+type Props = NativeStackScreenProps<RootStackParamList, "Task">;
+
+const Task: FC<Props> = ({ route }) => {
   const { id, name } = route.params;
 
   return (
